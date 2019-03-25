@@ -16,11 +16,6 @@ public class AlphaApplication {
     void init() {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
-    // 아직 안된다 
-    // The bean 'userRepository', defined in null, could not be registered. A
-    // bean with that name has already been defined in null and overriding is
-    // disabled.
-    // 해결해야됨
     public static void main(String[] args) {
         SpringApplication.run(AlphaApplication.class, args);
     }
