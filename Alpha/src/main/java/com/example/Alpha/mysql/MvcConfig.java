@@ -1,4 +1,4 @@
-package com.example.Alpha.security;
+package com.example.Alpha.mysql;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
