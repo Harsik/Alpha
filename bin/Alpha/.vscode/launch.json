@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AlphaApplication",
+            "request": "launch",
+            "mainClass": "com.example.Alpha.AlphaApplication",
+            "projectName": "Alpha"
+        }
+    ]
+}
