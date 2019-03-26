@@ -1,6 +1,7 @@
 package com.example.Alpha.payload;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 // import lombok.Builder;
 import lombok.Getter;
@@ -8,14 +9,16 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.Setter;
 
-// @Builder
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class LoginRequest {
+public class ChoiceRequest {
     @NotBlank
-    private String usernameOrEmail;
+    @Size(max = 40)
+    private String text;
 
-    @NotBlank
-    private String password;
+    // @Builder
+    // public ChoiceRequest(String text){
+    //     this.text = text;
+    // }
 }

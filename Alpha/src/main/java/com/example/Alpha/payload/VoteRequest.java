@@ -1,6 +1,6 @@
 package com.example.Alpha.payload;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 // import lombok.Builder;
 import lombok.Getter;
@@ -8,14 +8,15 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.Setter;
 
-// @Builder
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class LoginRequest {
-    @NotBlank
-    private String usernameOrEmail;
+public class VoteRequest {
+    @NotNull
+    private Long choiceId;
 
-    @NotBlank
-    private String password;
+    // @Builder
+    // public VoteRequest(Long choiceId){
+    //     this.choiceId = choiceId;
+    // }
 }

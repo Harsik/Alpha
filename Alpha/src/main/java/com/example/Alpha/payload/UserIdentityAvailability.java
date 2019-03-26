@@ -1,21 +1,19 @@
 package com.example.Alpha.payload;
 
-import javax.validation.constraints.NotBlank;
-
-// import lombok.Builder;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.Setter;
 
-// @Builder
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class LoginRequest {
-    @NotBlank
-    private String usernameOrEmail;
+public class UserIdentityAvailability {
+    private Boolean available;
 
-    @NotBlank
-    private String password;
+    @Builder
+    public UserIdentityAvailability(Boolean available) {
+        this.available = available;
+    }
 }

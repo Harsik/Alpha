@@ -6,17 +6,18 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 import lombok.Setter;
 
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ApiResponse {
-    private Boolean success;
-    private String message;
+public class UserSummary {
+    private Long id;
+    private String username;
+    private String name;
 
     @Builder
-    public ApiResponse(Boolean success, String message) {
-        this.success = success;
-        this.message = message;
+    public UserSummary(Long id, String username, String name) {
+        this.id = id;
+        this.username = username;
+        this.name = name;
     }
 }

@@ -1,18 +1,18 @@
 package com.example.Alpha.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import com.example.Alpha.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.Alpha.model.User;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 
     Optional<User> findByUsernameOrEmail(String username, String email);
@@ -25,6 +25,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     Boolean existsByEmail(String email);
 
-    Optional<User> findById(Long id);
+//	User getOne(Long id);
 
 }
