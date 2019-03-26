@@ -62,13 +62,5 @@ public class User extends DateAudit {
 		this.email = email;
 		this.password = password;
 	}
-	
-	// @Override
-	// public String toString(){
-	// 	return "Customer [idx = " + idx
-	// 	+ ", id = " + id
-	// 	+ ", pw = " + password;
-	// }
-
 }
 

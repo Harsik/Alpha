@@ -5,8 +5,10 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+// import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -19,7 +21,7 @@ import java.time.Instant;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 public abstract class DateAudit implements Serializable {
@@ -33,5 +35,11 @@ public abstract class DateAudit implements Serializable {
     @LastModifiedDate
     @Column(nullable = false)
     private Instant updatedAt;
+
+    // @Builder // User class의 extend로 DateAudit가 되어 있어 Builder가 오류가 난다.
+	// public DateAudit(Instant createdAt, Instant updatedAt) {
+	//  	this.createdAt = createdAt;
+	//  	this.updatedAt = updatedAt;
+	// }
 
 }
