@@ -8,6 +8,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.example.Alpha.model.audit.DateAudit;
+
 import org.hibernate.annotations.NaturalId;
 
 import lombok.Builder;
@@ -22,9 +24,11 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),
 		@UniqueConstraint(columnNames = { "email" }) })
-public class User {
+public class User extends DateAudit {
 
-    @Id
+	private static final long serialVersionUID = 1L;  //default serial version id 자바가 불안해 해서 넣는다고 한다 써도 문제 없음
+	
+	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //스프링 2.0이상 부터 GenerationType.AUTO에 문제가 있어 IDENTITY로 수정
 	private long id;
 	
