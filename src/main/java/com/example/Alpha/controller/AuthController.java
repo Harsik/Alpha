@@ -90,4 +90,9 @@ public class AuthController {
 
         return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
     }
+
+    @RequestMapping("/users")
+    public String authorized() {
+        return "Hello Secured World";
+    }
 }

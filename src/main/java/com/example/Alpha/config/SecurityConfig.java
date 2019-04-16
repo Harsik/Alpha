@@ -87,8 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder
-                .userDetailsService(customUserDetailsService)
-                .passwordEncoder(passwordEncoder());
+                .userDetailsService(customUserDetailsService) // 입력된 user에 대한 상세정보
+                .passwordEncoder(passwordEncoder()); //password를 encorder하는 방식을 정함
     }
 // AuthenticationManagerBuilder는 AuthenticationManager사용자를 인증하기위한 주요 스프링 보안 인터페이스 인 인스턴스 를 생성하는 데 사용된다 .
 // AuthenticationManagerBuilder메모리 내 인증, LDAP 인증, JDBC 인증을 작성하거나 사용자 정의 인증 제공자를 추가하는 데 사용할 수 있습니다 .
@@ -119,6 +119,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
     }
+
+    // @Bean
+    // public HttpSessionStrategy httpSessionStrategy() {
+    //     return new HeaderHttpSessionStrategy();
+    // }
 
     // @Bean
     // @Override
