@@ -53,7 +53,7 @@ public class User extends DateAudit {
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles = new HashSet<>();
+	private Set<Role> roles = new HashSet<>();  // 다중 권한 부여 가능 하도록 HashSet 사용
 
 	@Builder
 	public User(String name, String username, String email, String password) {

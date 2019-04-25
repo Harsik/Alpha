@@ -13,6 +13,8 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 // 마지막으로 JWTAuthenticationFilter요청에서
 //  JWT 토큰을 가져 와서 유효성을 검사하고 토큰과 연관된 사용자를로드 한 다음이를
@@ -46,7 +48,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         } catch (Exception ex) {
             logger.error("Could not set user authentication in security context", ex);
         }
-
+        // HttpSession httpSession = request.getSession(true);
+        // System.out.println("request.getSession().getId() = " + httpSession.getId());
         filterChain.doFilter(request, response);
     }
 
