@@ -100,11 +100,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    // .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and()
+    // .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http                
         .cors().and()
         .csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+                .sessionManagement()
+                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
                 .authorizeRequests()
                 .antMatchers("/", "/favicon.ico", "/**/*.png", "/**/*.gif", "/**/*.svg", "/**/*.jpg", "/**/*.html",
                         "/**/*.css", "/**/*.js")
@@ -115,4 +119,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
     }
+
 }
